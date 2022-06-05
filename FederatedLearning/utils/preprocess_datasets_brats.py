@@ -2,7 +2,7 @@
 import os
 import h5py
 import pathlib
-from data import transforms
+from ..data import transforms
 import numpy as np
 import torch
 import nibabel as nib
@@ -14,8 +14,8 @@ def mkdir(folder):
 
 def main():
 
-    root_dir ='path to /MICCAI_BraTS2020_ValidationData'
-    root_out_dir = 'path to /BraTS2020/T1/val'
+    root_dir ='pathTo/MICCAI_BraTS2020_TrainingData'
+    root_out_dir = 'pathTo/BraTS2020/T1/train'
     sequence = 't1'
 
     data_dir = pathlib.Path(os.path.join(root_dir))
@@ -58,7 +58,7 @@ def main():
         norm = np.linalg.norm(img_np)
         acquisition = 'str'
         # construct fastMRI style data format
-        with h5py.File(os.path.join(out_dir, idx + '.h5')) as data:
+        with h5py.File(os.path.join(out_dir, idx + '.h5'), 'w') as data:
             data.create_dataset('reconstruction_esc', data=img_np)
             data.create_dataset('kspace', data=kspace)
 
