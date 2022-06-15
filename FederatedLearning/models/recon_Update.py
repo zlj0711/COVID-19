@@ -22,7 +22,8 @@ class LocalUpdate(object):
     def train(self, net, epoch, idx, writer):
         net.train()
         # train and update
-        optimizer = torch.optim.RMSprop(net.parameters(), lr=self.args.lr)
+        # optimizer = torch.optim.RMSprop(net.parameters(), lr=self.args.lr)
+        optimizer = torch.optim.Adam(net.parameters(), lr=self.args.lr)
         scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=40, gamma=0.1)
 
         epoch_loss = []

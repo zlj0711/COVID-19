@@ -14,8 +14,10 @@ def mkdir(folder):
 
 def main():
 
-    root_dir ='pathTo/MICCAI_BraTS2020_TrainingData'
-    root_out_dir = 'pathTo/BraTS2020/T1/train'
+    # root_dir ='pathTo/MICCAI_BraTS2020_TrainingData'
+    # root_out_dir = 'pathTo/BraTS2020/T1/train'
+    root_dir ='pathTo/MICCAI_BraTS2020_ValidationData'
+    root_out_dir = 'pathTo/BraTS2020/T1/test'
     sequence = 't1'
 
     data_dir = pathlib.Path(os.path.join(root_dir))

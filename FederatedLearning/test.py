@@ -15,10 +15,11 @@ if __name__ == '__main__':
     os.environ["HDF5_USE_FILE_LOCKING"] = 'FALSE'
     # parse args
     args = args_parser()
-    path_dict = {'B': pathlib.Path('Dataset dir B'),
-                 'F': pathlib.Path('Dataset dir F'),
-                 'H': pathlib.Path('Dataset dir H'),
-                 'I': pathlib.Path('Dataset dir I')}
+    path_dict = {'B': pathlib.Path('../pathTo/BraTS2020')}
+    # path_dict = {'B': pathlib.Path('Dataset dir B'),
+    #              'F': pathlib.Path('Dataset dir F'),
+    #              'H': pathlib.Path('Dataset dir H'),
+    #              'I': pathlib.Path('Dataset dir I')}
     args.device = torch.device('cuda:{}'.format(args.gpu[0]) if torch.cuda.is_available() and args.gpu != -1 else 'cpu')
     if not os.path.exists(args.save_dir):
         os.mkdir(args.save_dir)
